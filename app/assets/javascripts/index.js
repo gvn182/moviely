@@ -7,7 +7,9 @@ app.controller("IndexCtrl", function ($scope, $modal, $http) {
         controller: 'ModalUpdateCtrl',
         size: 'lg',
         resolve: {
-
+            movieID: function () {
+              return 1;
+            }
         }
     });
     modalInstance.result.then(function (data) {
@@ -16,8 +18,8 @@ app.controller("IndexCtrl", function ($scope, $modal, $http) {
 });
 
 
-app.controller('ModalUpdateCtrl', function ($scope, $http, $modalInstance) {
-
-
+app.controller('ModalUpdateCtrl', function ($scope, $http, $modalInstance, movieID) {
+    $scope.movieID = movieID;
+    
 
 });
