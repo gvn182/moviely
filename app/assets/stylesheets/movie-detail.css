@@ -1,0 +1,62 @@
+.detail-content
+{
+    background-color:transparent;
+
+}
+
+.movie-backdrop {
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+    filter: brightness(30%);
+    -webkit-filter: brightness(30%);
+    -moz-filter: brightness(30%);
+    -o-filter: brightness(30%);
+    -ms-filter: brightness(30%);;
+
+}
+
+.movie-cover-big
+{
+    background-color:transparent;
+    margin-top:50px;
+    margin-left:30px;
+    margin-right:30px;
+    width:300px;
+    float:left;
+
+}
+.movie-detail
+{
+    background-color:transparent;
+    margin-top:50px;
+    margin-left:10px;
+    width:500px;
+    float:left;
+}
+
+.detail-title
+{
+    color:#fff;
+    font-size:36px;
+    font-weight: bold;
+    margin-bottom:0px;
+}
+.detail-year
+{
+    color:#fff;
+    margin-top:5px;
+    font-size:15px;
+}
+.detail-rating
+{
+    color:#fff;
+}
+
+.detail-text
+{
+    font-weight: bold;
+    color:silver;
+    font-size:16px;
+}
