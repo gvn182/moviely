@@ -62,7 +62,7 @@ body {
 .movie-block
 {
     float:left;
-    height:280px;
+    height:300px;
     width: 150px;
     margin-left:20px;
     margin-right:20px;
@@ -89,7 +89,7 @@ body {
 
 }
 .title{
-    margin-top:5px;
+    margin-top:15px;
     font-size:20px;
     color:white;
     text-align: center;
@@ -97,7 +97,7 @@ body {
 
 .search
 {
-    margin-right:10px;
+    margin-right:100px;
 }
 .add-button
 {

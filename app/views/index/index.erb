@@ -11,128 +11,33 @@
   </div>
   <div class="content">
     <div class="row">
-      <div class="search pull-right">
+      <div class="search">
         <form class="navbar-form">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-plus text-success"></i></button>
-            </div>
-          </div>
+
+
+          <angucomplete-alt
+          placeholder="Search"
+          pause="400"
+          remote-url="https://api.themoviedb.org/3/search/movie?api_key=146efec13c1525fecadaf47d41b250bb&query="
+          remote-url-data-field="results"
+          image-field=""
+          title-field="original_title"
+          input-changed="filterChanged"
+          selected-object="filterSelected"
+          input-class="form-control"
+          minlength="3" >
+          </angucomplete-alt>
 
         </form>
       </div>
     </div>
     <div class="row">
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
+      <div ng-repeat="movie in movie_list" ng-click="ShowMovieDetail(movie.id)" class="movie-block hvr-grow">
+        <img class="movie-cover" ng-src="http://image.tmdb.org/t/p/w150{{movie.poster_path}}"  />
+        <p class="movie-title">{{movie.title}}</p>
+        <p class="movie-subtitle">{{movie.release_date}}</p>
       </div>
 
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
-      <div class="movie-block hvr-grow">
-        <img class="movie-cover" src="http://image.tmdb.org/t/p/w150/btbRB7BrD887j5NrvjxceRDmaot.jpg" />
-        <p class="movie-title">Ex machina</p>
-        <p class="movie-subtitle">2015</p>
-      </div>
     </div>
   </div>
 </div>
@@ -140,18 +45,18 @@
 <script type="text/ng-template" id="movie-detail.html">
   <div class="detail-content">
 
-    <img class="movie-backdrop" src="http://image.tmdb.org/t/p/w1000/xBKGJQsAIeweesB79KC89FpBrVr.jpg" />
+    <img class="movie-backdrop" ng-src="http://image.tmdb.org/t/p/w1000{{movie.backdrop_path}}"/>
 
     <div class="movie-cover-big">
-      <img class="movie-cover" src="http://image.tmdb.org/t/p/w300/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg" />
+      <img class="movie-cover" ng-src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}" />
     </div>
     <div class="movie-detail">
-      <p class="detail-title">12 Years</p>
-      <p class="detail-year">2015</p>
-      <p class="detail-rating">8.3</p>
-      <p class="detail-text">Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
+      <p class="detail-title">{{movie.title}}</p>
+      <p class="detail-year">{{movie.release_date}}</p>
+      <p class="detail-rating">{{movie.vote_average}}</p>
+      <p class="detail-text">{{movie.overview}}</p>
     </div>
-    <button class="btn btn-success pull-right" ng-show="movieID != null">Save</button>
+    <button class="btn btn-success pull-right" ng-show="movie.hasMovie != null" ng-click="AddNewMovie(movie.id)">Add</button>
 
   </div>
 </script>

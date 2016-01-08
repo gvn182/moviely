@@ -12,6 +12,7 @@
 //
 //= require angular
 //= require angular-ui
+//= require angucomplete-alt.min
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
