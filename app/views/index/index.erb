@@ -2,19 +2,21 @@
   <div class="header">
     <div class="header-title">
       <p class="title">Movie.ly</p>
-
-      <ul class="menu">
-
-
-      </ul>
     </div>
-  </div>
-  <div class="content">
     <div class="row">
-      <div class="search">
+      <ul class="menu">
+        <li class="menu-active">
+          <a>Teste 1</a>
+        </li>
+        <li>
+          <a>Teste 2</a>
+        </li>
+        <li>
+          <a>Teste 3</a>
+        </li>
+      </ul>
+      <div class="search pull-right">
         <form class="navbar-form">
-
-
           <angucomplete-alt
           placeholder="Search"
           pause="400"
@@ -31,6 +33,9 @@
         </form>
       </div>
     </div>
+  </div>
+  <div class="content">
+
     <div class="row">
       <div ng-repeat="movie in movie_list" ng-click="ShowMovieDetail(movie.id)" class="movie-block hvr-grow">
         <img class="movie-cover" ng-src="http://image.tmdb.org/t/p/w150{{movie.poster_path}}"  />
