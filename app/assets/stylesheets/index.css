@@ -128,5 +128,23 @@ body {
 }
 
 .menu a {
+    text-decoration: none;
     color:white;
+}
+.add-button-list
+{
+    font-size:25px;
+}
+
+.list-edit
+{
+    float:left;
+    margin-left:5px;
+}
+.list-add-field
+{
+    border-color:transparent;
+    border-radius: 5px;
+    padding: 5px;
+
 }

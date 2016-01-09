@@ -5,15 +5,24 @@
     </div>
     <div class="row">
       <ul class="menu">
-        <li class="menu-active">
-          <a>Teste 1</a>
+        <li ng-repeat="list in customList" ng-click="changeList(list.id)" ng-class="{'menu-active' : getClass(list.id)}">
+          <a>{{list.name}}</a>
         </li>
-        <li>
-          <a>Teste 2</a>
+
+        <li ng-show="!creatingList">
+          <i ng-click="creatingList = true" class="add-button-list fa fa-plus text-success"></i>
         </li>
-        <li>
-          <a>Teste 3</a>
+
+        <li ng-show="creatingList">
+          <div class="pull-left">
+            <input ng-model="listCreatingName" type="text" class="list-add-field" maxlength="15" placeholder="List name">
+          </div>
+          <div class="list-edit">
+            <i ng-click="addList()" class="add-button-list fa fa-check text-success"></i>
+            <i ng-click="cleanAddList()" class="add-button-list fa fa-ban text-danger"></i>
+          </div>
         </li>
+
       </ul>
       <div class="search pull-right">
         <form class="navbar-form">
@@ -37,7 +46,7 @@
   <div class="content">
 
     <div class="row">
-      <div ng-repeat="movie in movie_list" ng-click="ShowMovieDetail(movie.id)" class="movie-block hvr-grow">
+      <div ng-repeat="movie in movie_list" ng-click="ShowMovieDetail(movie.movie_id)" class="movie-block hvr-grow">
         <img class="movie-cover" ng-src="http://image.tmdb.org/t/p/w150{{movie.poster_path}}"  />
         <p class="movie-title">{{movie.title}}</p>
         <p class="movie-subtitle">{{movie.release_date}}</p>

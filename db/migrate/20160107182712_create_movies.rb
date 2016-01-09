@@ -1,7 +1,8 @@
 class CreateMovies < ActiveRecord::Migration
   def change
     create_table :movies do |t|
-      t.integer :user_id
+      t.integer :movie_id
+      t.integer :custom_list_id
       t.string :poster_path
       t.float :overview
       t.string :release_date

@@ -4,13 +4,16 @@ class IndexController < ApplicationController
   end
 
   def search
-    data = Movie.where('title LIKE ?', "%#{params[:title]}%").page(params[:currentPage]).per(params[:maxSize])
-    total_items = Movie.where(movie_params.except(:currentPage, :maxSize)).count
-    render json: { data: data, total_items: total_items }
+    title = movie_params[:title]
+    title = title.downcase unless title == nil
+
+    data = Movie.where('lower(title) LIKE ? and custom_list_id = ?', "%#{title}%", "#{movie_params[:custom_list_id]}").page(params[:currentPage]).per(params[:maxSize])
+    #total_items = Movie.where(movie_params.except(:currentPage, :maxSize)).count
+    render json: { data: data, total_items: 15 }
   end
 
   def find
-    movie = Movie.find_by_id(params[:id])
+    movie = Movie.find_by(movie_id: params[:id], custom_list_id: params[:custom_list_id])
 
     if movie.nil?
       movie = HTTParty.get("https://api.themoviedb.org/3/movie/#{params[:id]}?api_key=#{api_key}")
@@ -25,6 +28,9 @@ class IndexController < ApplicationController
   def create
     movie = HTTParty.get("https://api.themoviedb.org/3/movie/#{params[:id]}?api_key=#{api_key}")
     movie.select!{|x| Movie.attribute_names.index(x)}
+    movie['movie_id'] = movie['id']
+    movie['id'] = nil
+    movie['custom_list_id'] = params[:custom_list_id]
     Movie.create(movie)
     render nothing: true, status: 201
   end
@@ -32,11 +38,11 @@ class IndexController < ApplicationController
   private
 
   def movie_params
-    params.permit(:title, :currentPage, :maxSize)
+    params.permit(:title, :currentPage, :maxSize, :custom_list_id)
   end
 
   def api_key
-    return '146efec13c1525fecadaf47d41b250bb'
+    '146efec13c1525fecadaf47d41b250bb'
   end
 
 end
