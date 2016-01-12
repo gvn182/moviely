@@ -27,6 +27,8 @@ module Moviely
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.enabled = true
+
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
   end
 end
