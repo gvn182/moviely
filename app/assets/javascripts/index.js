@@ -2,7 +2,7 @@ var app = angular.module("myApp", ['ui.bootstrap','angucomplete-alt']);
 
 app.controller("IndexCtrl", function ($scope, $modal, $http) {
     $scope.currentPage = 0;
-    $scope.maxSize = 30;
+    $scope.maxSize = 200;
     $scope.creatingList = false;
     $scope.listCreatingName = '';
     $scope.customList = '';
