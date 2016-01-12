@@ -47,9 +47,9 @@
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
             <span class="caret" data-toggle="dropdown"></span></button>
           <ul class="dropdown-menu">
+            <li><a ng-click="openListModal()" href="#">Edit lists</a></li>
             <li><%= link_to "Change password", edit_user_password_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-            <li><a href="#">Edit lists</a></li>
           </ul>
         </div>
       </div>
@@ -57,7 +57,8 @@
   </div>
   <div class="content">
     <div class="row">
-      <div ng-repeat="movie in movie_list" ng-click="ShowMovieDetail(movie.movie_id)" class="movie-block hvr-grow">
+      <div  ng-mouseenter="showRemove = true" ng-mouseleave="showRemove = false" ng-repeat="movie in movie_list" ng-click="ShowMovieDetail(movie.movie_id)" class="movie-block hvr-grow">
+        <i ng-show="showRemove" ng-click="RemoveMovie(movie.id, $event)" class="remove-movie fa fa-times"></i>
         <img class="movie-cover" ng-src="http://image.tmdb.org/t/p/w150{{movie.poster_path}}"  />
         <p class="movie-title">{{movie.title}}</p>
         <p class="movie-subtitle">{{movie.release_date}}</p>
@@ -84,5 +85,23 @@
     <button class="btn btn-success pull-right" ng-show="movie.hasMovie != null" ng-click="AddNewMovie(movie.id)">Add</button>
 
   </div>
+</script>
+
+<script type="text/ng-template" id="lists-detail.html">
+    <table class="table">
+      <tbody>
+      <tr ng-repeat="list in movie_list">
+        <td class="list-name">{{ list.name }} </td>
+        <td ng-show="movie_list.length >= 2" class="list-action">
+          <button type="button" class="btn btn-danger btn-sm" ng-click="RemoveList(list.id)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+
+
 </script>
 

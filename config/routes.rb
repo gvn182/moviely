@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'index/search' => 'index#search'
     get 'index/find' => 'index#find'
     post 'index/create' => 'index#create'
+    delete 'index/:id' => 'index#delete'
     resources :custom_list
 
   # Example of regular route:

@@ -37,6 +37,11 @@ class IndexController < ApplicationController
     render nothing: true, status: 201
   end
 
+  def delete
+    Movie.find_by_id(params[:id]).destroy
+    render nothing: true, status: 204
+  end
+
   private
 
   def movie_params

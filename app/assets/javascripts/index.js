@@ -93,7 +93,52 @@ app.controller("IndexCtrl", function ($scope, $modal, $http) {
         }
     };
 
+    $scope.RemoveMovie = function (id, $event)
+    {
+        $http.delete("/index/" + id).success(function (data, status, headers, config) {
+            $scope.getData();
+        });
+        $event.stopPropagation();
+    };
+
+    $scope.openListModal = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'lists-detail.html',
+            animation: true,
+            controller: 'ModalListCtrl',
+            size: 'md',
+            resolve: {
+                movie_list: function () {
+                    return $scope.customList;
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            $scope.$broadcast('angucomplete-alt:clearInput');
+            $scope.filter = "";
+            $scope.getData();
+        });
+    };
+
     $scope.getLists();
+});
+
+
+app.controller('ModalListCtrl', function ($scope, $http, $modalInstance, movie_list) {
+
+    $scope.movie_list = movie_list;
+
+
+    $scope.RemoveList = function (id) {
+
+        alert(id);
+        //$http.post("/index/create", payload).success(function (data, status, headers, config) {
+        //    $modalInstance.close();
+        //
+        //});
+    }
+
 });
 
 

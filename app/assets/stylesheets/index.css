@@ -146,10 +146,26 @@ body {
     border-color:transparent;
     border-radius: 5px;
     padding: 5px;
-
 }
 
 .options
 {
     margin-top:8px;
+}
+
+.remove-movie
+{
+    position: fixed;
+    color:red;
+    font-size:24px;
+    left:140px;
+    top:-10px;
+}
+.list-name {
+    vertical-align: middle;
+
+}
+.list-action {
+    text-align: right;
+    vertical-align: middle;
 }
