@@ -1,7 +1,7 @@
 <div class="container" ng-controller="IndexCtrl">
   <div class="header">
     <div class="header-title">
-      <p class="title">Movie.ly</p>
+      <p class="title">Movie.<a class="text-primary">ly</a></p>
     </div>
     <div class="row">
       <ul class="menu">
@@ -24,8 +24,10 @@
         </li>
 
       </ul>
+
+
       <div class="search pull-right">
-        <form class="navbar-form">
+        <form class="navbar-form pull-left">
           <angucomplete-alt
           placeholder="Search"
           pause="400"
@@ -40,11 +42,19 @@
           </angucomplete-alt>
 
         </form>
+
+        <div class="dropdown options pull-right">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="caret" data-toggle="dropdown"></span></button>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Change password", edit_user_password_path %></li>
+            <li><a href="#"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
   <div class="content">
-
     <div class="row">
       <div ng-repeat="movie in movie_list" ng-click="ShowMovieDetail(movie.movie_id)" class="movie-block hvr-grow">
         <img class="movie-cover" ng-src="http://image.tmdb.org/t/p/w150{{movie.poster_path}}"  />
