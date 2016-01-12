@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0893853d-10ba-4e8c-9ae4-4935fb2cd0cd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/assets.rb" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="moviely.iws" />
     <ignored path=".idea/workspace.xml" />
