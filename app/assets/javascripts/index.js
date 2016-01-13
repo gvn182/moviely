@@ -117,7 +117,7 @@ app.controller("IndexCtrl", function ($scope, $modal, $http) {
         modalInstance.result.then(function () {
             $scope.$broadcast('angucomplete-alt:clearInput');
             $scope.filter = "";
-            $scope.getData();
+            $scope.getLists();
         });
     };
 
@@ -126,19 +126,16 @@ app.controller("IndexCtrl", function ($scope, $modal, $http) {
 
 
 app.controller('ModalListCtrl', function ($scope, $http, $modalInstance, movie_list) {
-
     $scope.movie_list = movie_list;
-
 
     $scope.RemoveList = function (id) {
 
-        alert(id);
-        //$http.post("/index/create", payload).success(function (data, status, headers, config) {
-        //    $modalInstance.close();
-        //
-        //});
-    }
+        $http.delete("/custom_list/" + id).success(function (data, status, headers, config) {
 
+            $modalInstance.close();
+
+        });
+    }
 });
 
 
@@ -160,9 +157,6 @@ app.controller('ModalCtrl', function ($scope, $http, $modalInstance, movieID, cu
             $modalInstance.close();
 
         });
-
-
-
     };
 
 

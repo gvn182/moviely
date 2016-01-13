@@ -12,7 +12,9 @@ class CustomListController < ApplicationController
   end
 
   def destroy
-    render nothing: true, status: 201
+    Movie.destroy_all(custom_list_id: params[:id])
+    CustomList.destroy(params[:id])
+    render nothing: true, status: 204
   end
 
   private

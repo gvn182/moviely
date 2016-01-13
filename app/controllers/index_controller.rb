@@ -9,14 +9,12 @@ class IndexController < ApplicationController
     title = movie_params[:title]
     title = title.downcase unless title == nil
 
-    data = Movie.where('lower(title) LIKE ? and custom_list_id = ?', "%#{title}%", "#{movie_params[:custom_list_id]}").page(params[:currentPage]).per(params[:maxSize])
-    #total_items = Movie.where(movie_params.except(:currentPage, :maxSize)).count
-    render json: { data: data, total_items: 15 }
+    data = Movie.where('lower(title) LIKE ? and custom_list_id = ?', "%#{title}%", "#{movie_params[:custom_list_id]}")
+    render json: { data: data}
   end
 
   def find
     movie = Movie.find_by(movie_id: params[:id], custom_list_id: params[:custom_list_id])
-
     if movie.nil?
       movie = HTTParty.get("https://api.themoviedb.org/3/movie/#{params[:id]}?api_key=#{api_key}")
       movie['hasMovie'] = false
