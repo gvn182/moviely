@@ -8,7 +8,7 @@ class CustomListController < ApplicationController
 
   def create
     CustomList.create(list_params)
-    render json: { data: CustomList.all }
+    render json: { data: CustomList.find_by(user_id: current_user.id).all }
   end
 
   def destroy
