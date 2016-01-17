@@ -4,9 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :lists, class_name: 'CustomList'
+  has_many :movies
+
   after_create :create_uncategorized_list
 
   def create_uncategorized_list
-    CustomList.create(user_id: id, name: 'Uncategorized')
+    self.lists.create(name: 'Uncategorized')
   end
 end

@@ -1,23 +1,22 @@
 class CustomListController < ApplicationController
   def index
-    data = CustomList.where(user_id: current_user.id)
+    data = current_user.lists
     render json: { data: data }
   end
 
   def create
-    CustomList.create(list_params)
-    render json: { data: CustomList.find_by(user_id: current_user.id).all }
+    current_user.lists.create(list_params)
+    render json: { data: current_user.lists }
   end
 
   def destroy
-    Movie.destroy_all(custom_list_id: params[:id])
-    CustomList.destroy(params[:id])
+    current_user.lists.find(params[:id]).delete
     render nothing: true, status: 204
   end
 
   private
   def list_params
-    params.permit(:name).merge(user_id: current_user.id)
+    params.permit(:name)
   end
 
 end
