@@ -1,6 +1,4 @@
 class CustomListController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     data = CustomList.where(user_id: current_user.id)
     render json: { data: data }
@@ -20,7 +18,6 @@ class CustomListController < ApplicationController
   private
   def list_params
     params.permit(:name).merge(user_id: current_user.id)
-
   end
 
 end
