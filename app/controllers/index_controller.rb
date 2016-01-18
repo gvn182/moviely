@@ -1,10 +1,4 @@
 class IndexController < ApplicationController
-  before_action :authenticate_user!
-
-  def index
-
-  end
-
   def search
     title = movie_params[:title]
     title = title.downcase unless title == nil
@@ -31,12 +25,12 @@ class IndexController < ApplicationController
     movie['movie_id'] = movie['id']
     movie['id'] = nil
     movie['custom_list_id'] = params[:custom_list_id]
-    Movie.create(movie)
+    current_user.movies.create(movie)
     render nothing: true, status: 201
   end
 
   def delete
-    Movie.find_by_id(params[:id]).destroy
+    current_user.movies.find(params[:id]).destroy
     render nothing: true, status: 204
   end
 
