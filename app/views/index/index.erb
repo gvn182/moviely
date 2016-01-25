@@ -1,7 +1,7 @@
 <div class="container" ng-controller="IndexCtrl">
   <div class="header">
     <div class="header-title">
-      <p class="title">Movie.<a class="text-primary">ly</a></p>
+      <p class="title">Movie-<a class="text-primary">li</a></p>
     </div>
     <div class="row">
       <ul class="menu">
@@ -48,7 +48,6 @@
             <span class="caret" data-toggle="dropdown"></span></button>
           <ul class="dropdown-menu">
             <li><a ng-click="openListModal()" href="#">Edit lists</a></li>
-            <li><%= link_to "Change password", edit_user_password_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </div>

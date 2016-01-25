@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160117171453) do
     t.integer  "movie_id"
     t.integer  "custom_list_id"
     t.string   "poster_path"
-    t.string   "overview"
+    t.float    "overview"
     t.string   "release_date"
     t.string   "original_title"
     t.string   "title"
